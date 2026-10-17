@@ -350,6 +350,7 @@ a { color: inherit; }
 .drawer-submenu { display: grid; gap: 4px; padding: 7px 0 4px 13px; }
 .drawer-submenu a { display: flex; min-height: 42px; align-items: center; padding: 8px 12px; border-left: 2px solid #741d1d; color: #ffffff; font: .86rem/1.5 "EnkaDotGothic24", sans-serif; text-decoration: none; }
 .drawer-submenu a { font-family: "EnkaDotGothic24", "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
+.sans-fallback { font-family: "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
 .drawer-submenu a:hover { color: #ffffff; background: #efdfc410; }
 .hero-intro { max-width: 36em; margin: 0; color: var(--muted); font-size: clamp(1rem, 2.2vw, 1.2rem); }
 .music-catalog { display: grid; gap: 34px; }
