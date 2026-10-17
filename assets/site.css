@@ -347,3 +347,23 @@ a { color: inherit; }
   .menu-summary { min-width: 46px; padding: 8px 10px; }
   .site-drawer { width: min(320px, 88vw); }
 }
+/* Mobile and title layout refinements. */
+.profile-avatar { width: 170px; height: 170px; aspect-ratio: 1 / 1; border-radius: 50%; object-fit: cover; }
+.home-hero h1 {
+  max-width: none;
+  font-size: clamp(1.25rem, 4.8vw, 3.25rem);
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+.menu-summary::after { display: none; }
+@media (max-width: 620px) {
+  .home-hero h1 { font-size: clamp(1.15rem, 4.9vw, 1.65rem); }
+  .menu-summary { width: 46px; min-width: 46px; height: 46px; padding: 0; }
+  .menu-summary > span { display: none; }
+  .menu-summary::after {
+    display: block;
+    content: "≡";
+    font: 700 1.8rem/1 sans-serif;
+  }
+  .profile-avatar { width: 130px; height: 130px; }
+}
