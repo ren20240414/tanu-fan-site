@@ -184,7 +184,7 @@
       syncStatus.textContent = "スプレッドシートの最新データを表示中です。";
     };
     const dataScript = document.createElement("script");
-    dataScript.src = "https://script.google.com/macros/s/AKfycbyJK8DKo7tDUJAQkRE6a-SW2u4nVz6brGHlXRzG-sf3wDffmn_RAJylJi_5CnTXNCcz/exec?data=1";
+    dataScript.src = "https://script.google.com/macros/s/AKfycbzEgYycRnLD5TRh2oqXcf0uimKFQN_3RL9N3mc9ayJmxJRuJCsloAv2ea_94vPNStY5Xw/exec?data=1";
     dataScript.onerror = () => {
       syncStatus.textContent = "最新データを取得できません。GASの公開設定とデプロイを確認してください。";
     };
