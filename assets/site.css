@@ -363,14 +363,29 @@ a { color: inherit; }
   white-space: nowrap;
 }
 .menu-summary::after { display: none; }
+.mobile-label { display: none; }
 @media (max-width: 620px) {
   .home-hero h1 { font-size: clamp(1.15rem, 4.9vw, 1.65rem); }
   .menu-summary { width: 46px; min-width: 46px; height: 46px; padding: 0; }
   .menu-summary > span { display: none; }
   .menu-summary::after {
     display: block;
-    content: "≡";
-    font: 700 1.8rem/1 "EnkaDotGothic24", sans-serif;
+    width: 23px;
+    height: 17px;
+    content: "";
+    background:
+      linear-gradient(currentColor 0 0) top / 100% 3px no-repeat,
+      linear-gradient(currentColor 0 0) center / 100% 3px no-repeat,
+      linear-gradient(currentColor 0 0) bottom / 100% 3px no-repeat;
   }
   .profile-avatar { width: 130px; height: 130px; }
+  .desktop-label { display: none; }
+  .mobile-label { display: inline; }
+  .social-icon-links {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px 4px;
+  }
+  .social-icon-link:nth-child(-n + 2) { grid-column: span 3; }
+  .social-icon-link:nth-child(n + 3) { grid-column: span 2; }
 }
