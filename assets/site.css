@@ -145,7 +145,9 @@ a { color: inherit; }
 .profile-grid { display: grid; grid-template-columns: 170px 1fr; align-items: center; gap: 28px; }
 .profile-avatar { display: block; width: 170px; aspect-ratio: 1; border: 1px solid var(--border); border-radius: 50%; object-fit: cover; }
 .profile-name { margin: 0 0 4px; color: var(--forest-950); font-size: 1.6rem; }
-.profile-handle { color: var(--rust); font: 700 .88rem sans-serif; }
+.profile-tagline { margin: 0; color: var(--rust); font: 700 .95rem/1.7 sans-serif; }
+.profile-link-group { margin-top: 22px; }
+.profile-subheading { margin: 0 0 10px; color: var(--forest-900); font: 700 .86rem sans-serif; }
 .social-links, .service-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .social-links { margin-top: 17px; }
 .service-links { gap: 10px; }
