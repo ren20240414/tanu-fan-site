@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#203b31">
+  <meta name="description" content="tanu枠で使うコメントやIDをすばやくコピーできます。">
+  <title>キラコメの道具袋 — tanu fan site</title>
+    <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <header class="site-header"><div class="nav-shell">
+    <a class="brand" href="../" aria-label="tanu fan site ホーム"><span class="brand-seal" aria-hidden="true">✦</span><span><small>A TALE WE WALK TOGETHER</small>TANU FAN SITE</span></a>
+    <details class="menu-details site-menu">
+  <summary class="menu-summary"><span class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></span><span>メニュー</span></summary>
+  <nav class="menu-popover" aria-label="サイトメニュー">
+    <a href="../#home">ホーム</a>
+    <a href="../#profile">プロフィール</a>
+    <a href="../#music">ミュージック</a>
+    <a href="../#streaming">配信</a>
+    <a class="menu-parent" href="../#tools">おたのしみツール</a>
+    <a class="menu-child" href="../news/">ニュース一覧</a>
+    <a class="menu-child" href="../kiracome/">キラコメコピペツール</a>
+    <a class="menu-child" href="../journey/">配信の軌跡</a>
+    <a class="menu-child" href="../coming-soon/">Coming soon</a>
+    <a href="../#premium">プレミアムメンバー</a>
+  </nav>
+</details>
+  </div></header>
+  <main class="tool-main">
+    <section class="page-hero"><div class="breadcrumbs"><a href="../">ホーム</a>　/　キラコメツール</div><div class="eyebrow">TOOLS FOR THE JOURNEY</div><h1 class="page-title">✨ キラコメの道具袋</h1><p class="page-intro">配信で使うコメントを、コピーして旅のおともに。</p></section>
+  <p class="load-state" id="sync-status" aria-live="polite">スプレッドシートの最新データを取得しています…</p>
+  <div id="content" aria-label="コピーできるコメント"></div>
+  </main>
+  <footer class="site-footer"><p><a href="../">← ホームへ戻る</a>　·　ファンによる非公式サイト</p></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite">コピーしました！</div>
+  <script>
+    const groups = [
+      { title: "ID", items: [
+        "@tanu🍃🦝💝"
+      ] },
+      { title: "キラコメ（通常）", items: [
+        "♪.•*¨*•.¸¸🍃🦝💝𝕥𝕒𝕟𝕦💝🦝🍃.•*¨*•.¸¸♪",
+        "♪.•*¨*•.¸¸🎶🎼.•*¨*•.¸¸💝🦝🍃♪.•*¨*•.¸¸🎶🎼.•*¨*•.¸¸💝🦝🍃♪.•*¨*•.¸¸🎶🎼.•*¨*•.¸¸💝🦝🍃",
+        "💝💕💝*:.💝💕💝*:.💝💕💝*:.💝💕💝*:.💝💕💝*:.💝💕💝*:.💝💕💝*:.💝💕💝*:.💝💕💝",
+        "💝🫧𝒕𝒂𝒏𝒖🫧･*:.｡.💝🫧𝒕𝒂𝒏𝒖🫧･*:.｡.💝🫧𝒕𝒂𝒏𝒖🫧･*:.｡.💝🫧𝒕𝒂𝒏𝒖🫧･*:.｡.💝🫧𝒕𝒂𝒏𝒖🫧･*:.｡.💝",
+        "💝🎵✨゜*:.。.:*💝🎵✨゜*:.。.:*💝🎵✨゜*:.。.:*💝🎵✨゜*:.。.:*💝🎵✨゜*:.。.:*💝🎵✨",
+        "🍃🦝💝･*:.｡🍃🦝💝･*:.｡🍃🦝💝･*:.｡🍃🦝💝･*:.｡🍃🦝💝･*:.｡🍃🦝💝",
+        "⭐️💫✨ⓣⓐⓝⓤ🍃🦝💝⭐️💫✨ⓣⓐⓝⓤ🍃🦝💝⭐️💫✨ⓣⓐⓝⓤ🍃🦝💝⭐️💫✨ⓣⓐⓝⓤ🍃🦝💝",
+        "🌱✨🫧🍃ﾟ*｡，｡*ﾟ*｡，🌱✨🫧🍃ﾟ*｡，｡*ﾟ*｡，🌱✨🫧🍃ﾟ*｡，｡*ﾟ*｡，🌱✨🫧🍃ﾟ*｡，｡*ﾟ*｡，🌱✨🫧🍃",
+        "🌱🍃💝゜*:.。.:*🌱🍃💝゜*:.。.:*🌱🍃💝゜*:.。.:*🌱🍃💝゜*:.。.:*🌱🍃💝゜*:.。.:*🌱🍃💝゜*:.。.:*🌱🍃",
+        "🤟🏿🤟🏿🤟🏾🤟🏽🤟🏼🤟🏻👇🏻👇🏻👇🏻🤟🏻🤟🏼🤟🏽🤟🏾🤟🏿\n👉🏿👉🏿👉🏾👉🏽👉🏼👉🏻🍃🦝💝👈🏻👈🏼👈🏽👈🏾👈🏿\n👉🏿👉🏿👉🏾👉🏽👉🏼👉🏻 tanu🎤 👈🏻👈🏼👈🏽👈🏾👈🏿\n🤟🏿🤟🏿🤟🏾🤟🏽🤟🏼🤟🏻👆🏻 👆🏻👆🏻🤟🏻🤟🏼🤟🏽🤟🏾🤟🏿",
+        "•･ •･ •･ •･•･ •･•･ⓉⒶⓃⓊ･•･• ･•･• ･• ･• ･•\n◥◣◢◤◢◤◢◤🍃🦝💝◥◣◥◣◥◣◢◤\n◢◤◥◣◥◣◥◣  tanu🎤◢◤◢◤◢◤◥◣\n･• ･• ･• ･• ･•･•🅢🅘🅝🅖🅔🅡•･ •･ •･ •･ •･ •･",
+        "✨💖tanu🍃🦝💝✨💖tanu🍃🦝💝\n🟩🟩🟩 🟦🟦🟦 🟩✨✨🟩 🟦✨🟦\n✨🟩✨ 🟦👩🏻🟦 🟩🟩✨🟩 🟦✨🟦\n✨🟩✨ 🟦🟦🟦 🟩✨🟩🟩 🟦✨🟦\n✨🟩✨ 🟦✨🟦 🟩✨✨🟩 🟦🟦🟦",
+        "✨💖tanu🍃🦝💝✨💖tanu🍃🦝💝\n🟨🟨🟨 🟦🟦🟦 🟨 ✨ 🟨 🟦👩🏻🟦\n✨🟨✨ 🟦🍃🟦 🟨🟨  🟨 🟦🎤🟦\n✨🟧✨ 🟪🟪🟪 🟧  🟧🟧 🟪👖🟪\n✨🟧✨ 🟪✨🟪 🟧 ✨ 🟧 🟪🟪🟪",
+        "🍃🍃🍃🍃🍃🍃🍃🍃🍃🍃🍃🍃\n🍃🍃🟨🟨🍃🟨🟨🟨🍃tanu 🍃\n🍃🟨🦝🟨🍃🍃🍃🟨🍃🍃🦝💝\n🍃🟨🟨🟨🍃🟨🍃🟨🍃タヌ🍃\n🍃🍃🍃🟧🍃🍃🟧🍃🍃🍃🦝💝\n🍃🟧🟧🍃🍃🟧🍃🟧🍃狸🍃🍃",
+        "💖tanu🍃🦝💝 🍃 💖tanu🍃🦝💝\n🍃✨🟨🟨🟨🟨🟨🟨🟨🟨🟨✨🍃\n✨🟨🟨⬜️⬜️⬜️🟨⬜️⬜️⬜️🟨🟨✨\n🦝🟨🟨⬜️⚫️⬜️⬜️⬜️⚫️⬜️🟨🟨🦝\n✨🟨🟨⬜️⬜️⬜️🟤⬜️⬜️⬜️🟨🟨✨\n🍃✨🟨🟨🟨🟨👅🟨🟨🟨🟨✨🍃\n✨🎤🟨🟨⬜️⬜️⬜️⬜️⬜️🟨🟨🧡✨\n🦝🟨🟨⬜️⬜️⬜️✖️⬜️⬜️⬜️🟨🟨🦝\n✨🍃✨🟨🟤🟨🟨🟨🟤🟨 ポンタ！"
+      ] },
+      { title: "キラコメ（ハニマス）", items: [
+        "💛𝑯𝒐𝒏𝒆𝒚🥨🍯𝒎𝒖𝒔𝒕𝒂𝒓𝒅💛･*:.｡.💛𝑯𝒐𝒏𝒆𝒚🥨🍯𝒎𝒖𝒔𝒕𝒂𝒓𝒅💛.｡..:*･💛𝑯𝒐𝒏𝒆𝒚🥨🍯𝒎𝒖𝒔𝒕𝒂𝒓𝒅💛",
+        "💝🥨🍯･*:.｡.💝🥨🍯･*:.｡.💝🥨🍯･*:.｡.💝🥨🍯･*:.｡.💝🥨🍯･*:.｡.💝🥨🍯･*:.｡.💝🥨🍯･*:.｡.💝🥨🍯",
+        "🎤now singing〜 @tanu🍃🦝💝\n💿ハニーマスタードねじりパン/tanu(ｵﾘｼﾞﾅﾙ曲)\n🔊┠──⊙─────┨🔊\n🔊 ↻          ◁ II ▷         ↺ 🔊"
+      ] },
+      { title: "キラコメ（流星群）", items: [
+        "⭐️✨ ⋱✮⋰ ⭐️✨ ⋱✮⋰ ⭐️✨ ⋱✮⋰ ⭐️✨ ⋱✮⋰ ⭐️✨ ⋱✮⋰ ⭐️✨ ⋱✮⋰ ⭐️",
+        "✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈ ✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈ ✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈ ✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҈✨✰҉҈҉҈҉҉✨✰҉҈҉҈҉҉ ✨✰҉҈҉҈҉҉✨✰҉҈҉҈҉҉✨",
+        "⭐️💫✨✽.｡.:*・ﾟ⭐️💫✨✽.｡.:*・ﾟ⭐️💫✨✽.｡.:*・ﾟ⭐️💫✨✽.｡.:*・ﾟ⭐️💫✨✽.｡.:*・ﾟ⭐️💫✨",
+        "⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫･*:.｡⭐️･*:.｡𝓉𝒶𝓃𝓊💫",
+        "✨💖tanu🍃🦝💝✨💫流星群💫💫💫\n🟪🟪🟪 🟦🟦🟦 🟪🌟🌟🟪 🟦🌟🟦\n🌟🟪🌟 🟦🌠🟦 🟪🟪🌟🟪 🟦🌟🟦\n🌟🟪🌟 🟦🟦🟦 🟪🌟🟪🟪 🟦🌟🟦\n🌟🟪🌟 🟦🌟🟦 🟪🌟🌟🟪 🟦🟦🟦",
+        "🎤now singing〜 @tanu🍃🦝💝\n💿 流星群 / tanu (オリジナル曲)\n🔊┠──⊙─────┨🔊\n🔊 ↻          ◁ II ▷         ↺ 🔊"
+      ] },
+      { title: "キラコメ（ランタナ）", items: [
+        "🌸🌼 🌎*·⑅🌸🌼 🌎*·⑅🌸🌼 🌎*·⑅🌸🌼 🌎*·⑅🌸🌼 🌎*·⑅🌸🌼🌎",
+        "🩵𝒕𝒂𝒏𝒖💜🌈 *¨*•.¸¸⋆*🩵𝒕𝒂𝒏𝒖💜🌈 *¨*•.¸¸⋆*🩵𝒕𝒂𝒏𝒖💜🌈 *¨*•.¸¸⋆*🩵𝒕𝒂𝒏𝒖💜🌈 *¨*•.¸¸⋆*🩵𝒕𝒂𝒏𝒖💜🌈 *¨*•.¸¸⋆*🩵𝒕𝒂𝒏𝒖💜🌈 *¨*•.¸¸⋆*🩵𝒕𝒂𝒏𝒖💜🌈",
+        "⚔️🍃🌎・:*:・⚔️🍃🌎・:*:・⚔️🍃🌎・:*:・⚔️🍃🌎・:*:・⚔️🍃🌎・:*:・⚔️🍃🌎",
+        "🌱𝔏𝔞𝔫𝔱𝔞𝔫𝔞🍃𝔩𝔞𝔫𝔡🌎 ﾟ*｡，｡*ﾟ*｡🌱𝔏𝔞𝔫𝔱𝔞𝔫𝔞🍃𝔩𝔞𝔫𝔡🌎 ﾟ*｡，｡*ﾟ*｡🌱𝔏𝔞𝔫𝔱𝔞𝔫𝔞🍃𝔩𝔞𝔫𝔡🌎 ﾟ*｡，｡*ﾟ*｡🌱𝔏𝔞𝔫𝔱𝔞𝔫𝔞🍃𝔩𝔞𝔫𝔡🌎 ﾟ*｡，｡*ﾟ*｡🌱𝔏𝔞𝔫𝔱𝔞𝔫𝔞🍃𝔩𝔞𝔫𝔡🌎 ﾟ*｡，｡*ﾟ*｡🌱𝔏𝔞𝔫𝔱𝔞𝔫𝔞🍃𝔩𝔞𝔫𝔡🌎",
+        "💜✨💙✨❤️✨💝✨🧡✨💚✨💙✨💝✨💙✨💜✨🧡✨🧡✨💜✨🧡✨💝",
+        "💙𝕃𝕒𝕟𝕥𝕒𝕟𝕒 𝕝𝕒𝕟𝕕 ♬•*¨*•.¸¸♪𝓉𝒶𝓃𝓊💜𝕃𝕒𝕟𝕥𝕒𝕟𝕒 𝕝𝕒𝕟𝕕 ♬•*¨*•.¸¸♪𝓉𝒶𝓃𝓊❤️𝕃𝕒𝕟𝕥𝕒𝕟𝕒 𝕝𝕒𝕟𝕕 ♬•*¨*•.¸¸♪𝓉𝒶𝓃𝓊💚𝕃𝕒𝕟𝕥𝕒𝕟𝕒 𝕝𝕒𝕟𝕕 ♬•*¨*•.¸¸♪𝓉𝒶𝓃𝕦💛𝕃𝕒𝕟𝕥𝕒𝕟𝕒 𝕝𝕒𝕟𝕕 ♬•*¨*•.¸¸♪𝓉𝒶𝓃𝓊🧡",
+        "🎤now singing〜 @tanu🍃🦝💝\n💿 ランタナランド / tanu (オリジナル曲)\n🔊┠──⊙─────┨🔊\n🔊 ↻          ◁ II ▷         ↺ 🔊"
+      ] },
+      { title: "キラコメ（NEKOバス）", items: [
+        "🐈‍⬛ℕ𝔼𝕂𝕆🎵🎶･*:.｡🐈‍⬛･*:.｡🎵🎶ℕ𝔼𝕂𝕆🐈‍⬛･*:.｡🎵🎶ℕ𝔼𝕂𝕆🐈‍⬛･*:.｡🎵🎶ℕ𝔼𝕂𝕆🐈‍⬛･*:.｡🎵🎶ℕ𝔼𝕂𝕆🐈‍⬛･*:.｡🎵🎶ℕ𝔼𝕂𝕆🐈‍⬛･*:.｡🎵🎶"
+      ] },
+      { title: "ラッキー袋", items: [
+        "🍃無料ｷﾞﾌﾄ・ﾌｫﾛｰ・ｴｰﾙ・ いいね・ｼｪｱお願いします🦝有料ギフトも大歓迎です💝✨🍃\nPlease give free gifts, follow, vote, like and share🦝Of course, paid gifts are also very welcome💝✨🍃\n请赠送免费礼物，关注、投票、点赞和分享🦝我们也非常欢迎付费礼物💝✨"
+      ] },
+      { title: "tanu枠関連ID", items: [
+        "@ななみん🍠nanamin",
+        "@うみ🏖🐠🐌🌱ｽｩｺﾞｫｲ",
+        "@まりまり🤣🦖💛dance",
+        "@ぴぐもん💫🦖",
+        "@_うた音_",
+        "@ちーもん❤️💉nurse",
+        "@HARUKA🌸岩🎤🍀",
+        "@Dandy🌹ゆういち🎤🎸"
+      ] }
+    ];
+
+    const content = document.querySelector("#content");
+    const syncStatus = document.querySelector("#sync-status");
+    const toast = document.querySelector("#toast");
+    let toastTimer;
+
+    async function copyText(text, button) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const field = document.createElement("textarea");
+        field.value = text;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.append(field);
+        field.select();
+        const copied = document.execCommand("copy");
+        field.remove();
+        if (!copied) return;
+      }
+      handleSuccess(button);
+    }
+
+    function handleSuccess(button) {
+      showToast();
+      button.textContent = "完了!";
+      button.classList.add("copied");
+      setTimeout(() => {
+        button.textContent = "コピー";
+        button.classList.remove("copied");
+      }, 1200);
+    }
+
+    function showToast() {
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
+    }
+
+    function renderGroups(dataGroups) {
+      content.replaceChildren();
+      if (!dataGroups.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty-state";
+        empty.textContent = "スプレッドシートにデータが見つかりませんでした。";
+        content.append(empty);
+        return;
+      }
+
+      for (const group of dataGroups) {
+        const section = document.createElement("div");
+        section.className = "scene-group";
+        const heading = document.createElement("h2");
+        heading.className = "scene-title";
+        heading.textContent = group.scene ?? group.title;
+        const list = document.createElement("div");
+        list.className = "message-list";
+        for (const item of group.items) {
+          const value = typeof item === "string" ? item : item.text;
+          const row = document.createElement("div");
+          row.className = "message-row";
+          const snippet = document.createElement("div");
+          snippet.className = "message-text";
+          snippet.textContent = value;
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "copy-btn";
+          button.textContent = "コピー";
+          button.addEventListener("click", () => copyText(value, button));
+          row.append(snippet, button);
+          list.append(row);
+        }
+        section.append(heading, list);
+        content.append(section);
+      }
+    }
+
+    // Retain a snapshot for offline viewing; replace it with fresh sheet data when available.
+    renderGroups(groups.map(group => ({scene: group.title, items: group.items})));
+    window.receiveTanuData = dataGroups => {
+      renderGroups(dataGroups);
+      syncStatus.textContent = "スプレッドシートの最新データを表示中です。";
+    };
+    const dataScript = document.createElement("script");
+    dataScript.src = "https://script.google.com/macros/s/AKfycbyJK8DKo7tDUJAQkRE6a-SW2u4nVz6brGHlXRzG-sf3wDffmn_RAJylJi_5CnTXNCcz/exec?data=1";
+    dataScript.onerror = () => {
+      syncStatus.textContent = "最新データを取得できません。GASの公開設定とデプロイを確認してください。";
+    };
+    document.head.append(dataScript);
+  </script>
+<script>
+  document.addEventListener("click", event => {
+    if (event.target.closest(".site-menu a")) document.querySelector(".site-menu").open = false;
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
