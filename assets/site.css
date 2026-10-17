@@ -191,11 +191,16 @@ a { color: inherit; }
 /* Kira-kome tool */
 .tool-main { width: min(920px, calc(100% - 40px)); margin: 0 auto; padding-bottom: 65px; }
 .tool-status { margin: 16px 0; color: var(--muted); font: .78rem "EnkaDotGothic24", sans-serif; }
+.scene-picker { display: grid; gap: 7px; margin: 0 0 22px; }
+.scene-picker label { color: var(--forest-950); font-weight: 700; }
+.scene-picker select { width: 100%; min-height: 48px; padding: 9px 14px; border: 2px solid var(--forest-900); border-radius: 5px; color: var(--ink); background: var(--paper-light); font: .92rem "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; cursor: pointer; }
+.scene-picker option { font-family: "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
+.scene-picker select:focus-visible { outline: 3px solid var(--rust); outline-offset: 2px; }
 .scene-group { margin-bottom: 18px; padding: 16px 20px; border: 1px solid var(--border); border-radius: 7px; background: var(--paper-light); box-shadow: 0 5px 16px #2e2a260c; }
 .scene-title { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); color: var(--forest-950); font-size: 1.05rem; }
 .message-list { display: flex; flex-direction: column; gap: 9px; }
 .message-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid var(--forest-900); border-radius: 5px; background: var(--parchment); }
-.message-text { flex-grow: 1; overflow-wrap: anywhere; white-space: pre-wrap; font-size: .9rem; line-height: 1.5; }
+.message-text { flex-grow: 1; overflow-wrap: anywhere; white-space: pre-wrap; font: .9rem/1.5 "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
 .copy-btn { flex-shrink: 0; padding: 7px 13px; border: 1px solid var(--forest-700); border-radius: 4px; color: #ffffff; background: var(--forest-700); font: 700 .78rem "EnkaDotGothic24", sans-serif; cursor: pointer; }
 .copy-btn:hover { background: var(--forest-900); }
 .copy-btn.copied { border-color: var(--forest-900); background: var(--forest-900); }

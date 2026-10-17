@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#424a2e">
   <meta name="description" content="tanu枠で使うコメントやIDをすばやくコピーできます。">
-  <title>キラコメの道具袋 — tanu 非公式ファンサイト</title>
+  <title>キラコメコピペツール — tanu 非公式ファンサイト</title>
     <link rel="stylesheet" href="../assets/site.css">
     <link rel="icon" type="image/png" href="../assets/site-icon.png">
 </head>
@@ -32,8 +32,14 @@
     </nav>
   </aside>
   <main class="tool-main">
-    <section class="page-hero"><div class="breadcrumbs"><a href="../">ホーム</a>　/　キラコメツール</div><div class="eyebrow">TOOLS FOR THE JOURNEY</div><h1 class="page-title">✨ キラコメの道具袋</h1><p class="page-intro">配信で使うコメントを、コピーして旅のおともに。</p></section>
+    <section class="page-hero"><div class="breadcrumbs"><a href="../">ホーム</a>　/　キラコメコピペツール</div><div class="eyebrow">TOOLS FOR THE JOURNEY</div><h1 class="page-title">✨ キラコメコピペツール</h1><p class="page-intro">キラコメ使ってtanuの配信を盛り上げよう🎤</p></section>
   <p class="load-state" id="sync-status" aria-live="polite">スプレッドシートの最新データを取得しています…</p>
+  <div class="scene-picker">
+    <label for="scene-select">使用シーン</label>
+    <select id="scene-select" aria-controls="content">
+      <option value="">使用シーンを選択</option>
+    </select>
+  </div>
   <div id="content" aria-label="コピーできるコメント"></div>
   </main>
   <footer class="site-footer"><p><a href="../">← ホームへ戻る</a>　·　ファンによる非公式サイト</p></footer>
@@ -102,8 +108,10 @@
 
     const content = document.querySelector("#content");
     const syncStatus = document.querySelector("#sync-status");
+    const sceneSelect = document.querySelector("#scene-select");
     const toast = document.querySelector("#toast");
     let toastTimer;
+    let displayedGroups = [];
 
     async function copyText(text, button) {
       try {
@@ -139,9 +147,9 @@
       toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
     }
 
-    function renderGroups(dataGroups) {
+    function renderSelectedGroup() {
       content.replaceChildren();
-      if (!dataGroups.length) {
+      if (!displayedGroups.length) {
         const empty = document.createElement("div");
         empty.className = "empty-state";
         empty.textContent = "スプレッドシートにデータが見つかりませんでした。";
@@ -149,39 +157,59 @@
         return;
       }
 
-      for (const group of dataGroups) {
-        const section = document.createElement("div");
-        section.className = "scene-group";
-        const heading = document.createElement("h2");
-        heading.className = "scene-title";
-        heading.textContent = group.scene ?? group.title;
-        const list = document.createElement("div");
-        list.className = "message-list";
-        for (const item of group.items) {
-          const value = typeof item === "string" ? item : item.text;
-          const row = document.createElement("div");
-          row.className = "message-row";
-          const snippet = document.createElement("div");
-          snippet.className = "message-text";
-          snippet.textContent = value;
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = "copy-btn";
-          button.textContent = "コピー";
-          button.addEventListener("click", () => copyText(value, button));
-          row.append(snippet, button);
-          list.append(row);
-        }
-        section.append(heading, list);
-        content.append(section);
+      const selectedGroup = displayedGroups.find(group => (group.scene ?? group.title) === sceneSelect.value);
+      if (!selectedGroup) {
+        const prompt = document.createElement("div");
+        prompt.className = "empty-state";
+        prompt.textContent = "使用シーンを選ぶと、対応するキラコメが表示されます。";
+        content.append(prompt);
+        return;
       }
+
+      const section = document.createElement("div");
+      section.className = "scene-group";
+      const heading = document.createElement("h2");
+      heading.className = "scene-title";
+      heading.textContent = selectedGroup.scene ?? selectedGroup.title;
+      const list = document.createElement("div");
+      list.className = "message-list";
+      for (const item of selectedGroup.items) {
+        const value = typeof item === "string" ? item : item.text;
+        const row = document.createElement("div");
+        row.className = "message-row";
+        const snippet = document.createElement("div");
+        snippet.className = "message-text";
+        snippet.textContent = value;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "copy-btn";
+        button.textContent = "コピー";
+        button.addEventListener("click", () => copyText(value, button));
+        row.append(snippet, button);
+        list.append(row);
+      }
+      section.append(heading, list);
+      content.append(section);
+    }
+
+    function renderGroups(dataGroups) {
+      const selectedScene = sceneSelect.value;
+      displayedGroups = dataGroups;
+      const sceneNames = [...new Set(dataGroups.map(group => group.scene ?? group.title))];
+      sceneSelect.replaceChildren(new Option("使用シーンを選択", ""));
+      for (const sceneName of sceneNames) {
+        sceneSelect.add(new Option(sceneName, sceneName));
+      }
+      sceneSelect.value = sceneNames.includes(selectedScene) ? selectedScene : "";
+      renderSelectedGroup();
     }
 
     // Retain a snapshot for offline viewing; replace it with fresh sheet data when available.
     renderGroups(groups.map(group => ({scene: group.title, items: group.items})));
+    sceneSelect.addEventListener("change", renderSelectedGroup);
     window.receiveTanuData = dataGroups => {
       renderGroups(dataGroups);
-      syncStatus.textContent = "スプレッドシートの最新データを表示中です。";
+      syncStatus.textContent = "最新データを表示中です ᐢ⓿ᴥ⓿ᐢ";
     };
     const dataScript = document.createElement("script");
     dataScript.src = "https://script.google.com/macros/s/AKfycbzEgYycRnLD5TRh2oqXcf0uimKFQN_3RL9N3mc9ayJmxJRuJCsloAv2ea_94vPNStY5Xw/exec?data=1";
