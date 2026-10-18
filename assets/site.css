@@ -182,7 +182,6 @@ a { color: inherit; }
 .profile-card > * { position: relative; z-index: 1; }
 .profile-card .profile-card-gem { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; image-rendering: pixelated; object-fit: contain; }
 .card-mark img { display: block; width: 48px; height: 48px; image-rendering: pixelated; object-fit: contain; }
-.premium-section { margin-top: 56px; padding-top: 48px; border-top: 2px solid var(--moss); }
 .coming-label { display: inline-block; margin-top: 14px; color: var(--rust); font: 700 .65rem "EnkaDotGothic24", sans-serif; letter-spacing: .14em; }
 .page-hero { padding: 48px 0 28px; }
 .breadcrumbs { margin-bottom: 13px; color: var(--muted); font: .72rem "EnkaDotGothic24", sans-serif; }
