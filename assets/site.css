@@ -135,6 +135,9 @@ a { color: inherit; }
 .section-dark p { color: var(--moonlight); }
 .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .section-head h2, .page-title { margin: 0; color: var(--forest-950); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.25; }
+.ribbon-title { position: relative; display: grid; place-items: center; width: clamp(300px, 52vw, 600px); max-width: 100%; height: clamp(112px, 13vw, 150px); }
+.heading-ribbon { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; image-rendering: pixelated; }
+.ribbon-title h2 { position: relative; z-index: 1; padding: 0 12%; color: var(--ink); font-size: clamp(1.5rem, 4vw, 2.8rem); white-space: nowrap; }
 .section-head p { max-width: 34em; margin: 9px 0 0; color: var(--muted); font-size: .9rem; }
 .text-link { color: var(--rust); font: 700 .82rem "EnkaDotGothic24", sans-serif; text-decoration-thickness: 1px; text-underline-offset: 4px; white-space: nowrap; }
 .paper-panel {
