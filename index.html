@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#424a2e">
+  <meta name="theme-color" content="#142B2A">
   <meta name="description" content="アーティスト tanu さんの⾮公式ファンサイトです。">
   <title>tanu 非公式ファンサイト</title>
   <link rel="icon" type="image/png" href="assets/site-icon.png">
@@ -24,28 +24,26 @@
       <a href="#profile">プロフィール</a>
       <a href="#music">ミュージック</a>
       <a href="#streaming">配信</a>
-      <details class="drawer-tools"><summary>おたのしみツール<span aria-hidden="true">▼</span></summary><div class="drawer-submenu">
+      <details class="drawer-tools"><summary>おtanuしみツール<span aria-hidden="true">▼</span></summary><div class="drawer-submenu">
         <a href="news/">ニュース一覧</a>
         <a href="kiracome/">キラコメコピペツール</a>
         <a href="journey/"><span>配信の<span class="sans-fallback">軌跡</span></span></a>
         <a href="coming-soon/">Coming soon</a>
+        <a href="premium/">プレミアムメンバー</a>
       </div></details>
-      <a href="#premium">プレミアムメンバー</a>
     </nav>
   </aside>
 
   <main>
-    <section class="home-hero page-shell" id="home" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">tanu 非公式ファンサイト</h1>
-        <p class="hero-intro">アーティスト tanu さんの⾮公式ファンサイトです。</p>
-      </div>
+    <section class="home-hero" id="home" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="visually-hidden">tanu 非公式ファンサイト</h1>
+      <img class="home-hero-image" src="assets/tanu-forest-hero.png" alt="月明かりの森の入口に立つ冒険者たちと、tanu 非公式ファンサイトのタイトル">
     </section>
 
     <section class="section" id="profile">
       <div class="page-shell">
-        <div class="section-head"><div><div class="eyebrow">PROFILE</div><h2>プロフィール</h2></div></div>
-        <div class="paper-panel profile-grid">
+        <div class="section-head"><div><div class="eyebrow">PROFILE</div><div class="ribbon-title"><img class="heading-ribbon" src="assets/dots_ribbon3.png" alt="" aria-hidden="true"><h2>プロフィール</h2></div></div></div>
+        <div class="paper-panel profile-card profile-grid">
           <img class="profile-avatar" src="assets/tanu-profile-icon.png" alt="tanuさんのアイコン" width="170" height="170">
           <div>
             <h3 class="profile-name">tanu</h3>
@@ -79,7 +77,7 @@
 
     <section class="section section-dark" id="music">
       <div class="page-shell">
-        <div class="section-head"><div><div class="eyebrow">MUSIC</div><h2>ミュージック</h2></div></div>
+        <div class="section-head"><div><div class="eyebrow">MUSIC</div><div class="ribbon-title"><img class="heading-ribbon" src="assets/dots_ribbon1.png" alt="" aria-hidden="true"><h2>ミュージック</h2></div></div></div>
         <div class="paper-panel music-catalog">
           <section class="music-category" aria-labelledby="original-songs-title">
             <div class="music-category-head"><h3 id="original-songs-title">オリジナル曲</h3><a class="music-playlist" href="https://youtube.com/playlist?list=PLEPzYN4AXR4_OcsNYPB0GMWKNWemqGG18&amp;si=A8yiGRRc8tsrLAij" target="_blank" rel="noopener noreferrer">オリジナル曲一覧を見る ↗</a></div>
@@ -125,30 +123,58 @@
 
     <section class="section" id="streaming">
       <div class="page-shell">
-        <div class="section-head"><div><div class="eyebrow">STREAMING</div><h2>配信</h2></div></div>
-        <div class="paper-panel"><div class="empty-note"><span class="icon">🎙️</span>配信の情報を掲載します。</div></div>
+        <div class="section-head"><div><div class="eyebrow">STREAMING</div><div class="ribbon-title"><img class="heading-ribbon" src="assets/dots_ribbon4.png" alt="" aria-hidden="true"><h2>配信</h2></div></div></div>
+        <div class="paper-panel streaming-panel">
+          <img class="streaming-icon" src="assets/Pixel Art Microphone Illustration.png" alt="" aria-hidden="true">
+          <div class="streaming-copy">
+            <h3>17LIVE にて配信中<span class="streaming-note" aria-hidden="true"><img src="assets/Pixel Art Musical Note.png" alt=""></span></h3>
+            <p class="streaming-anniversary"><time datetime="2026-10-05">2026年10月5日</time> 17LIVE配信4周年<span class="anniversary-icons" aria-hidden="true"><img src="assets/Pixel Art Diamond Icon.png" alt=""><img src="assets/Pixel Art Blue Sparkling Stars.png" alt=""></span></p>
+            <p>歌よりもちょっと雑談多めで憑依型歌唱をお届け！</p>
+            <p>歌える曲リストからリクエストも受け付けてます♪</p>
+            <p>歌える曲リストは <a href="https://lit.link/tanu0920" target="_blank" rel="noopener noreferrer">こちら</a> から</p>
+          </div>
+          <div class="streaming-brand">
+            <img class="streaming-logo" src="assets/17LIVE_logo_white_red.png" alt="17LIVE">
+            <a class="streaming-watch" href="https://17.live/s/u/60f526f1-f5af-4c41-adc9-b2550650a184?pid=17.live" target="_blank" rel="noopener noreferrer"><strong>17LIVEでtanuの配信を見る&nbsp;</strong></a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section section-dark" id="tools">
       <div class="page-shell">
-        <div class="section-head"><div><div class="eyebrow">ADVENTURER'S TOOLS</div><h2>おたのしみツール</h2></div></div>
+        <div class="section-head"><div><div class="eyebrow">ADVENTURER'S TOOLS</div><div class="ribbon-title"><img class="heading-ribbon" src="assets/dots_ribbon2.png" alt="" aria-hidden="true"><h2>おtanuしみツール</h2></div></div></div>
         <div class="content-grid">
-          <a class="content-card" href="news/"><div class="card-mark">📜</div><h3>ニュース一覧</h3></a>
-          <a class="content-card" href="kiracome/"><div class="card-mark">✨</div><h3>キラコメコピペツール</h3></a>
-          <a class="content-card" href="journey/"><div class="card-mark">🧭</div><h3>配信の<span class="sans-fallback">軌跡</span></h3></a>
-          <a class="content-card" href="coming-soon/"><div class="card-mark">⚔️</div><h3>Coming soon</h3></a>
+          <a class="content-card" href="news/"><div class="card-mark"><img src="assets/Canvas Scroll Pixel Art.png" alt="" aria-hidden="true"></div><h3>ニュース一覧</h3></a>
+          <a class="content-card" href="kiracome/"><div class="card-mark"><img src="assets/Pixel Art Blue Sparkling Stars.png" alt="" aria-hidden="true"></div><h3>キラコメコピペツール</h3></a>
+          <a class="content-card" href="journey/"><div class="card-mark"><img src="assets/Pixel Art Compass Navigation Sprite.png" alt="" aria-hidden="true"></div><h3>配信の<span class="sans-fallback">軌跡</span></h3></a>
+          <a class="content-card" href="coming-soon/"><div class="card-mark"><img src="assets/Pixel art sword with blue light.png" alt="" aria-hidden="true"></div><h3>Coming soon</h3></a>
+          <a class="content-card" href="premium/"><div class="card-mark"><img src="assets/Pixel Art Noble Crown Icon.png" alt="" aria-hidden="true"></div><h3>プレミアムメンバー</h3></a>
         </div>
       </div>
     </section>
-
-    <section class="section" id="premium">
-      <div class="page-shell">
-        <div class="section-head"><div><div class="eyebrow">PREMIUM MEMBER</div><h2>プレミアムメンバー</h2></div></div>
-        <div class="paper-panel"><div class="empty-note">プレミアムメンバーの情報を掲載します。</div></div>
-      </div>
-    </section>
   </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-contents" aria-label="CONTENTS">
+        <h2>CONTENTS</h2>
+        <a href="#home">ホーム</a>
+        <a href="#profile">プロフィール</a>
+        <a href="#music">ミュージック</a>
+        <a href="#streaming">配信</a>
+        <a href="#tools">おtanuしみツール</a>
+      </nav>
+      <section class="footer-about" aria-labelledby="footer-about-title">
+        <h2 id="footer-about-title">tanu 非公式ファンサイト</h2>
+        <p class="footer-english">tanu Unoffical Fansite</p>
+        <ul class="footer-notices">
+          <li>tanu さんの非公式ファンサイトです。</li>
+          <li>当サイトで使用している画像の著作権・肖像権等は各権利者に帰属いたします。</li>
+          <li>可能な限り正確な情報を掲載するよう努めておりますが、誤った情報が入り込んだり、情報が古くなっている可能性がございます。</li>
+        </ul>
+      </section>
+    </div>
+  </footer>
   <script src="assets/site.js" defer></script>
 </body>
 </html>
