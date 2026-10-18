@@ -163,42 +163,24 @@ a { color: inherit; }
 .social-icon-link:hover { color: var(--rust); }
 .social-link { padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--forest-800); font: 700 .75rem "EnkaDotGothic24", sans-serif; text-decoration: none; }
 .content-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.featured-content { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding-top: 24px; padding-bottom: 42px; }
 .content-card {
-  position: relative;
-  display: block;
-  min-height: 142px;
-  padding: 8px 9px 10px;
-  border: 3px solid var(--wood);
-  border-radius: 2px;
-  color: var(--ink);
-  background: var(--deep-forest);
-  box-shadow: 4px 4px 0 #081817aa, inset 0 0 0 2px #081817;
+  min-height: 196px;
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--paper-light);
+  box-shadow: 0 8px 22px #08181766;
   text-decoration: none;
-  transition: transform .18s ease, filter .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
-.content-card::before { position: absolute; inset: 3px; pointer-events: none; background: linear-gradient(var(--wood), var(--wood)) top left / 16px 3px no-repeat, linear-gradient(var(--wood), var(--wood)) top left / 3px 16px no-repeat, linear-gradient(var(--wood), var(--wood)) top right / 16px 3px no-repeat, linear-gradient(var(--wood), var(--wood)) top right / 3px 16px no-repeat, linear-gradient(var(--wood), var(--wood)) bottom left / 16px 3px no-repeat, linear-gradient(var(--wood), var(--wood)) bottom left / 3px 16px no-repeat, linear-gradient(var(--wood), var(--wood)) bottom right / 16px 3px no-repeat, linear-gradient(var(--wood), var(--wood)) bottom right / 3px 16px no-repeat; content: ""; }
-.content-card[href]:hover { transform: translateY(-3px); filter: brightness(1.12); }
-.content-card:focus-visible { outline: 3px solid var(--alert); outline-offset: 4px; }
-.card-ribbon { position: relative; z-index: 1; width: fit-content; max-width: 88%; min-height: 26px; margin: -4px auto 10px; padding: 2px 14px; border: 2px solid var(--moss); color: var(--ink); background: var(--night-teal); box-shadow: 2px 2px 0 #081817aa; text-align: center; }
-.content-card:nth-child(2) .card-ribbon { border-color: var(--leaf); }
-.content-card:nth-child(3) .card-ribbon { border-color: var(--music); }
-.content-card h3 { overflow: hidden; margin: 0; font: 700 .79rem/1.5 "EnkaDotGothic24", sans-serif; text-overflow: ellipsis; white-space: nowrap; }
-.card-body { display: flex; min-height: 78px; align-items: center; gap: 12px; padding: 0 7px; }
-.card-icon { display: grid; width: 55px; height: 55px; flex: 0 0 auto; place-items: center; border: 2px solid var(--moss); background: var(--night-teal); box-shadow: inset 0 0 0 3px #142B2A; font-size: 1.75rem; image-rendering: pixelated; }
-.content-card:nth-child(2) .card-icon { border-color: var(--leaf); }
-.content-card:nth-child(3) .card-icon { border-color: var(--music); }
-.card-lines { display: grid; flex: 1; gap: 8px; padding: 4px 0; }
-.card-lines i { display: block; width: 100%; height: 3px; background: #D9F2E577; }
-.card-lines i:nth-child(2) { width: 75%; }
-.card-lines i:nth-child(3) { width: 88%; }
-.card-arrow { align-self: flex-end; padding-bottom: 2px; color: var(--leaf); font: 700 1.25rem/1 "EnkaDotGothic24", sans-serif; }
-.featured-card { min-height: 128px; }
-.featured-card .card-body { gap: 8px; padding: 0 3px; }
-.featured-card .card-icon { width: 44px; height: 48px; }
-.featured-card .card-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.featured-card .card-arrow { font-size: 1rem; }
-.featured-glyph { color: var(--music); font: 700 1.55rem/1 "EnkaDotGothic24", sans-serif; }
+.content-card[href]:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.card-mark { color: var(--rust); font-size: 1.4rem; }
+.content-card h3 { margin: 10px 0 6px; color: var(--forest-950); font-size: 1.1rem; }
+.content-card p { margin: 0; color: var(--muted); font-size: .82rem; }
+.profile-card { position: relative; overflow: hidden; border: 2px solid var(--moss); border-radius: 2px; background: var(--night-teal); box-shadow: 5px 5px 0 #081817aa, inset 0 0 0 3px var(--deep-forest); }
+.profile-card::before { position: absolute; inset: 5px; pointer-events: none; background: linear-gradient(var(--leaf), var(--leaf)) top left / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) top left / 3px 20px no-repeat, linear-gradient(var(--leaf), var(--leaf)) top right / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) top right / 3px 20px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom left / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom left / 3px 20px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom right / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom right / 3px 20px no-repeat; content: ""; }
+.profile-card > * { position: relative; z-index: 1; }
+.premium-section { margin-top: 56px; padding-top: 48px; border-top: 2px solid var(--moss); }
 .coming-label { display: inline-block; margin-top: 14px; color: var(--rust); font: 700 .65rem "EnkaDotGothic24", sans-serif; letter-spacing: .14em; }
 .page-hero { padding: 48px 0 28px; }
 .breadcrumbs { margin-bottom: 13px; color: var(--muted); font: .72rem "EnkaDotGothic24", sans-serif; }
@@ -253,15 +235,6 @@ a { color: inherit; }
   .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
-  .featured-content { gap: 7px; padding-top: 18px; padding-bottom: 30px; }
-  .featured-card { min-height: 112px; padding: 7px 5px; }
-  .featured-card .card-ribbon { max-width: 94%; margin-bottom: 8px; padding: 2px 6px; }
-  .featured-card h3 { font-size: .61rem; }
-  .featured-card .card-body { min-height: 66px; gap: 4px; padding: 0 1px; }
-  .featured-card .card-icon { width: 35px; height: 40px; }
-  .featured-card .card-lines { gap: 6px; }
-  .featured-card .card-lines i { height: 2px; }
-  .featured-card .card-arrow { font-size: .8rem; }
   .request-cta { align-items: flex-start; flex-direction: column; }
   .nav-shell { width: calc(100% - 26px); min-height: 66px; gap: 10px; }
   .brand { gap: 7px; font-size: .94rem; }
