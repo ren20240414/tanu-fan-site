@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "EnkaDotGothic24";
-  src: url("fonts/EnkaDotGothic24.ttf") format("truetype");
+  font-family: "DotGothic16";
+  src: url("fonts/DotGothic16-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -31,7 +31,7 @@
   --border: var(--moss);
   --shadow: 0 16px 35px #08181788;
   --sans-font: "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
-  --site-font: "EnkaDotGothic24", "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+  --site-font: "DotGothic16", "Google Sans", "Roboto", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -183,6 +183,26 @@ a { color: inherit; }
 .content-card h3 { margin: 10px 0 6px; color: var(--forest-950); font-size: 1.1rem; }
 .content-card p { margin: 0; color: var(--muted); font-size: .82rem; }
 .latest-news-placeholder { display: grid; min-height: 100px; place-items: center; color: var(--moonlight); font-size: 1.1rem; font-weight: 700; }
+.latest-news-list { display: grid; gap: 0; width: 100%; margin: 0; padding: 0; list-style: none; text-align: left; }
+.latest-news-list li + li { border-top: 1px dashed var(--border); }
+.latest-news-item { display: grid; grid-template-columns: 130px minmax(0, 1fr); align-items: center; gap: 18px; padding: 14px 8px; }
+.latest-news-date { color: var(--moonlight); font: .78rem var(--site-font); }
+.latest-news-list a { display: block; color: var(--ink); font-weight: 700; text-decoration: none; }
+.latest-news-list a:hover, .latest-news-list a:focus-visible { color: var(--leaf); text-decoration: underline; text-underline-offset: 4px; }
+.news-archive-list { display: grid; gap: 0; }
+.news-archive-item { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 18px; padding: 18px 8px; border-bottom: 1px dashed var(--border); }
+.news-archive-item:last-child { border-bottom: 0; }
+.news-archive-item time { color: var(--moonlight); font: .78rem var(--site-font); }
+.news-entry-link { color: var(--ink); font-weight: 700; text-decoration: none; }
+.news-entry-link:hover, .news-entry-link:focus-visible { color: var(--leaf); text-decoration: underline; text-underline-offset: 4px; }
+.news-detail { color: var(--ink); }
+.news-detail time { display: block; margin-bottom: 10px; color: var(--moonlight); font: .8rem var(--site-font); }
+.news-detail-image { display: block; max-width: min(100%, 760px); max-height: 560px; margin: 0 auto 24px; object-fit: contain; }
+.news-detail-body { color: var(--ink); line-height: 1.9; white-space: pre-wrap; overflow-wrap: anywhere; }
+.news-related-links { display: grid; gap: 10px; margin: 26px 0 0; padding-left: 1.3em; }
+.news-related-links a { color: var(--music); overflow-wrap: anywhere; }
+.news-back-link { display: inline-block; margin-top: 28px; color: var(--leaf); }
+.news-load-error { color: var(--alert); text-align: center; }
 .paper-panel, .content-card { position: relative; overflow: hidden; border: 2px solid var(--moss); border-radius: 2px; background: var(--night-teal); box-shadow: 5px 5px 0 #081817aa, inset 0 0 0 3px var(--deep-forest); isolation: isolate; }
 .paper-panel::before, .content-card::before { position: absolute; inset: 5px; z-index: 0; pointer-events: none; background: linear-gradient(var(--leaf), var(--leaf)) top left / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) top left / 3px 20px no-repeat, linear-gradient(var(--leaf), var(--leaf)) top right / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) top right / 3px 20px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom left / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom left / 3px 20px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom right / 20px 3px no-repeat, linear-gradient(var(--leaf), var(--leaf)) bottom right / 3px 20px no-repeat; content: ""; }
 .paper-panel > *, .content-card > * { position: relative; z-index: 1; }
@@ -275,6 +295,8 @@ a { color: inherit; }
   .profile-avatar { width: 130px; }
   .story-layout { grid-template-columns: 1fr; }
   .news-item { grid-template-columns: 1fr; gap: 4px; }
+  .latest-news-item { grid-template-columns: 1fr; gap: 3px; }
+  .news-archive-item { grid-template-columns: 1fr; gap: 5px; }
   .tool-main { width: calc(100% - 28px); }
   .scene-group { padding: 14px; }
   .message-row { align-items: stretch; flex-direction: column; }
