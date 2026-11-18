@@ -48,7 +48,7 @@
       }
 
       window[callback] = data => {
-        if (!data || data.content !== 'story' || !Array.isArray(data.items)) return finish(new Error('Invalid story response'));
+        if (!validPayload(data)) return finish(new Error('Invalid story response'));
         finish(null, data);
       };
       script.onerror = () => finish(new Error('Story request failed'));
@@ -71,7 +71,11 @@
   }
 
   function validPayload(data) {
-    return data && data.content === 'story' && Array.isArray(data.items);
+    return data
+      && (data.content == null || data.content === 'story')
+      && Array.isArray(data.items)
+      && data.items.every(item => item && typeof item === 'object'
+        && ['event_id', 'start_date', 'event_type', 'publish_status'].some(key => key in item));
   }
 
   function render(items) {
