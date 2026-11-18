@@ -250,7 +250,7 @@ a { color: inherit; }
 .story-entry-links a { color: var(--music); text-underline-offset: 3px; overflow-wrap: anywhere; }
 .story-empty-state { padding: 28px 16px; border: 1px dashed var(--border); color: var(--moonlight); text-align: center; }
 .story-load-error { color: var(--alert); }
-.story-dialog { width: min(760px, calc(100% - 28px)); max-width: 760px; max-height: min(84vh, 900px); padding: 0; border: 1px solid var(--moss); color: var(--ink); background: var(--deep-forest); box-shadow: 0 20px 70px #000b; }
+.story-dialog { width: min(760px, calc(100% - 28px)); max-width: 760px; max-height: min(84vh, 900px); overflow: hidden; padding: 0; border: 1px solid var(--moss); color: var(--ink); background: var(--deep-forest); box-shadow: 0 20px 70px #000b; }
 .story-dialog::backdrop { background: #06110fe6; backdrop-filter: blur(3px); }
 .story-dialog-panel { max-height: inherit; overflow-y: auto; padding: clamp(20px, 4vw, 36px); }
 .story-dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
