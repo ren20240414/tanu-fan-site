@@ -6,11 +6,11 @@ function getStoryResponse(e) {
   const sheet = ss.getSheetByName(SHEET_NAME);
 
   if (!sheet) {
-    return storyJsonp_(e, { items: [], error: '指定したシートが見つかりません。' });
+    return storyJsonp_(e, { content: 'story', items: [], error: '指定したシートが見つかりません。' });
   }
 
   const values = sheet.getDataRange().getValues();
-  if (values.length < 2) return storyJsonp_(e, { items: [] });
+  if (values.length < 2) return storyJsonp_(e, { content: 'story', items: [] });
 
   const headers = values[0].map(value => String(value).trim());
   const column = name => headers.indexOf(name);
@@ -45,7 +45,7 @@ function getStoryResponse(e) {
     return String(b.start_date).localeCompare(String(a.start_date));
   });
 
-  return storyJsonp_(e, { items });
+  return storyJsonp_(e, { content: 'story', items });
 }
 
 function storyText_(value) {

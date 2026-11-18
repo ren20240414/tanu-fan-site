@@ -15,8 +15,8 @@
   }
 
   const cached = readCache();
-  const fresh = cached && Array.isArray(cached.data.items) && Date.now() - cached.savedAt < CACHE_TTL;
-  if (cached && Array.isArray(cached.data.items)) render(cached.data.items);
+  const fresh = cached && validPayload(cached.data) && Date.now() - cached.savedAt < CACHE_TTL;
+  if (cached && validPayload(cached.data)) render(cached.data.items);
   if (fresh) return;
 
   fetchStory()
@@ -25,7 +25,7 @@
       render(data.items);
     })
     .catch(() => {
-      if (cached && Array.isArray(cached.data.items)) return;
+      if (cached && validPayload(cached.data)) return;
       list.classList.add('story-load-error');
       renderEmpty('これまでの物語を読み込めませんでした。時間をおいて再度ご覧ください。');
     });
@@ -48,7 +48,7 @@
       }
 
       window[callback] = data => {
-        if (!data || !Array.isArray(data.items)) return finish(new Error('Invalid story response'));
+        if (!data || data.content !== 'story' || !Array.isArray(data.items)) return finish(new Error('Invalid story response'));
         finish(null, data);
       };
       script.onerror = () => finish(new Error('Story request failed'));
@@ -68,6 +68,10 @@
 
   function writeCache(data) {
     try { localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), data })); } catch (_) { /* live response still works */ }
+  }
+
+  function validPayload(data) {
+    return data && data.content === 'story' && Array.isArray(data.items);
   }
 
   function render(items) {
