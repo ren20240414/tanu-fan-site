@@ -41,10 +41,32 @@
       <p class="page-intro">tanuと登場人物たちのこれまでの歩みの記録。明日も一緒にページをめくりましょう</p>
     </section>
     <section class="story-layout story-layout-single">
-      <div class="timeline">
-        <div class="paper-panel empty-note"><span class="icon">🧭</span>旅の記録を整理中です。配信の思い出をたどりながら、少しずつ道しるべを置いていきます。</div>
+      <div class="story-board" aria-labelledby="story-board-title">
+        <div class="story-board-heading">
+          <div class="story-board-heading-copy">
+            <div class="eyebrow">JOURNEY LOG</div>
+            <h2 id="story-board-title">旅の記録</h2>
+          </div>
+          <div class="story-board-count"><strong data-story-count>0</strong><span>CHAPTERS</span></div>
+        </div>
+        <div class="story-timeline" data-story-list aria-live="polite">
+          <p class="story-empty-state">公開中の記録を読み込んでいます。</p>
+        </div>
       </div>
     </section>
+    <dialog class="story-dialog" data-story-dialog aria-labelledby="story-dialog-title">
+      <div class="story-dialog-panel">
+        <header class="story-dialog-heading">
+          <div>
+            <p class="story-entry-date" data-story-dialog-date></p>
+            <span class="story-entry-type" data-story-dialog-type hidden></span>
+            <h2 id="story-dialog-title" data-story-dialog-title></h2>
+          </div>
+          <button class="story-dialog-close" type="button" data-story-dialog-close aria-label="詳細を閉じる">×</button>
+        </header>
+        <div class="story-dialog-content" data-story-dialog-content></div>
+      </div>
+    </dialog>
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
@@ -60,6 +82,7 @@
     </div>
   </footer>
   <script src="../assets/site.js" defer></script>
+  <script src="../assets/story.js" defer></script>
 </body>
 </html>
 

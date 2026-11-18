@@ -17,4 +17,5 @@
 - `assets/site.css` : 全ページ共通スタイル
 - `assets/forest-map.svg` : ホームの古地図イラスト
 - `gas/Code.gs` : スプレッドシートを読み取り専用JSONPで返すGASコード
+- `gas/Story.gs` : 「⚔これまでの物語」タブを読み取り専用JSONPで返す独立GASコード
 - `.github/workflows/pages.yml` : GitHub ActionsでGitHub Pagesへ公開
